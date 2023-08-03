@@ -1,0 +1,46 @@
+[
+	 {
+		“instruction” :  “Что такое СУПы (система управления параметрами)?”,
+		“input” :  “”,
+		“output” : “Система управления параметрами (СУП). Предназначена для управления общими параметрами сервисов и бизнес-проектов ЕФС. Система предоставляет администраторам единый универсальный интерфейс для управления настройками, а прикладным проектам - быстрый и надежный API для получения настроек.”
+	}
+	{
+		“instruction” :  “Сгенерируй исходный код для получения значения из СУПа.
+Ключ супа "ufs.profile.change verifyMinor. whitelist", возвращаемое значение - список строк.”,
+		“input” :  “”,
+		“output” : “public class SUPConfigService {
+private final ExtendedConfigService config;
+private final RequestTemplate requestTemplate;
+@Autowired
+public SUPConfigService(@Qualifier("configService") final ExtendedConfigService config,
+@Qualifier("commonRequestTemplate") final RequestTemplate request Template) {
+this config = config;
+this.requestTemplate = requestTemplate;
+}
+@Override
+public List getSupList0 {
+final ConfigRequest request =
+requestTemplate.buildRequest("ufs.profile.change.verifyMinor.whitelist");
+return config.getParameters(request).getOne(request).getOrThrowIfFailed0.getString0.orList(new
+Array List<>();
+Задание значение по умолчанию в файле конфигурации:
+{
+"name": "ufs profile.change. verifyMinor. whitelist",
+"description": "whitelist для входа в процесс создания верификации детей до 14 лет".
+"isList": true,
+"roles": [
+"Manage Parameters. ParameterRole.System"
+1.
+"type": "STRING",
+"bundle": [
+{
+"path": [
+1.
+"values":
+/ СПИСОК
+]
+}
+]
+}”
+	}
+]
